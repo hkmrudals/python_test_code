@@ -9,6 +9,10 @@ def data_load(path):
     with open(path, 'r') as f:
        card = json.load(f)
 
+def data_save(path):
+    with open(path, 'w') as f:
+       json.dump(card, f, indent=2)
+       
 card = [{'name':'홍길동','address':'서울','tel':'010-1111-2222','email' : 'hong@gmail.com'},
         {'name':'김태우','address':'세종','tel':'010-2222-3333','email' : 'kim@gmail.com'}]
 
@@ -23,7 +27,7 @@ while True:
 -------------------------------------------------------
  >>> ''')
     if menu == '1':
-        pass
+        card = data_input(card)
         while True:
             name = input('이름 >>> ')
             check = 0
@@ -84,11 +88,11 @@ while True:
             print('등록되지 않은 데이터입니다.') 
                  
     elif menu == '6':
-        with open('02_program/namecard.json', 'w') as f:
-            json.dump(card,f,indent=2)
+      data_save(path)
         
     elif menu == '7':
         print('프로그램 종료!')
+        data_save(path)
         break
     else:
         print('메뉴선택이 잘못되었습니다.')
