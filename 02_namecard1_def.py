@@ -27,7 +27,7 @@ while True:
 -------------------------------------------------------
  >>> ''')
     if menu == '1':
-        card = data_input(card)
+        card = (card)
         while True:
             name = input('이름 >>> ')
             check = 0
